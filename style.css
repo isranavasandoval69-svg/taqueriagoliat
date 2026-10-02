@@ -1,0 +1,1800 @@
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+    --red: #d71920;
+    --red-dark: #a80f15;
+    --yellow: #ffd21f;
+    --yellow-dark: #eab900;
+    --black: #111111;
+    --dark: #171717;
+    --dark-2: #222222;
+    --cream: #fff7df;
+    --white: #ffffff;
+    --gray: #777777;
+    --green: #25d366;
+
+    --font-title: "Anton", sans-serif;
+    --font-body: "Montserrat", sans-serif;
+
+    --container: 1200px;
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--black);
+    background: var(--cream);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    border: 0;
+}
+
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.topbar {
+    background: var(--yellow);
+    color: var(--black);
+
+    min-height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 35px;
+
+    padding: 8px 20px;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    min-height: 82px;
+
+    padding: 10px 5%;
+
+    background: var(--black);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    transition: 0.3s ease;
+}
+
+.header.scrolled {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+.brand-logo {
+    width: 95px;
+    max-height: 65px;
+    object-fit: contain;
+}
+
+.header nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    margin-left: auto;
+}
+
+.header nav a {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    transition: color 0.2s ease;
+}
+
+.header nav a:hover {
+    color: var(--yellow);
+}
+
+.nav-order {
+    background: var(--red);
+    color: white;
+
+    padding: 14px 20px;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+
+    transition: 0.2s ease;
+}
+
+.nav-order:hover {
+    background: var(--yellow);
+    color: var(--black);
+}
+
+.menu-toggle {
+    display: none;
+
+    margin-left: auto;
+
+    background: transparent;
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 52px;
+
+    padding: 14px 25px;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 0.7px;
+
+    cursor: pointer;
+
+    border: 2px solid transparent;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-yellow {
+    background: var(--yellow);
+    color: var(--black);
+}
+
+.btn-yellow:hover {
+    background: white;
+}
+
+.btn-red {
+    background: var(--red);
+    color: white;
+}
+
+.btn-red:hover {
+    background: var(--yellow);
+    color: var(--black);
+}
+
+.btn-outline {
+    border-color: white;
+    color: white;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--black);
+}
+
+.btn-green {
+    background: var(--green);
+    color: white;
+
+    width: 100%;
+}
+
+.btn-green:hover {
+    background: #1db954;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 650px;
+
+    background:
+        radial-gradient(
+            circle at 80% 45%,
+            rgba(255, 210, 31, 0.15),
+            transparent 28%
+        ),
+        linear-gradient(
+            120deg,
+            #171717 0%,
+            #111111 55%,
+            #d71920 150%
+        );
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 8%;
+
+    overflow: hidden;
+}
+
+.hero-noise {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.05;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(#fff 1px, transparent 1px);
+
+    background-size: 7px 7px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 700px;
+}
+
+.eyebrow {
+    color: var(--yellow);
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-family: var(--font-title);
+
+    font-size: clamp(70px, 10vw, 140px);
+
+    line-height: 0.86;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.hero h1 span {
+    color: var(--yellow);
+}
+
+.hero-content > p {
+    margin-top: 30px;
+
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 30px;
+
+    flex-wrap: wrap;
+}
+
+.hero-note {
+    margin-top: 30px;
+
+    color: #dddddd;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+.hero-taco {
+    position: absolute;
+
+    right: 5%;
+    top: 50%;
+
+    width: 440px;
+    height: 440px;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1;
+}
+
+.giant-taco {
+    font-size: 230px;
+
+    filter:
+        drop-shadow(0 25px 20px rgba(0, 0, 0, 0.45));
+
+    transform: rotate(-8deg);
+
+    animation: tacoFloat 4s ease-in-out infinite;
+}
+
+.taco-shadow {
+    position: absolute;
+
+    width: 280px;
+    height: 60px;
+
+    bottom: 70px;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    border-radius: 50%;
+
+    filter: blur(15px);
+}
+
+@keyframes tacoFloat {
+    0%,
+    100% {
+        transform: rotate(-8deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-5deg) translateY(-15px);
+    }
+}
+
+.burst {
+    position: absolute;
+
+    background: var(--yellow);
+    color: var(--black);
+
+    font-weight: 900;
+
+    padding: 12px 15px;
+
+    transform: rotate(-12deg);
+
+    box-shadow: 5px 5px 0 var(--red);
+}
+
+.burst-1 {
+    top: 40px;
+    right: 40px;
+}
+
+.burst-2 {
+    bottom: 80px;
+    left: 40px;
+
+    font-size: 30px;
+
+    transform: rotate(12deg);
+}
+
+.hero-sticker {
+    position: absolute;
+
+    right: 5%;
+    bottom: 45px;
+
+    width: 130px;
+    height: 130px;
+
+    background: var(--red);
+
+    border-radius: 50%;
+
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    font-family: var(--font-title);
+
+    font-size: 16px;
+
+    transform: rotate(8deg);
+
+    box-shadow: 8px 8px 0 var(--yellow);
+}
+
+.hero-sticker strong {
+    color: var(--yellow);
+    font-size: 25px;
+}
+
+
+/* =========================================
+   MARQUEE
+========================================= */
+
+.marquee {
+    background: var(--yellow);
+
+    overflow: hidden;
+
+    padding: 13px 0;
+
+    white-space: nowrap;
+}
+
+.marquee div {
+    width: max-content;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    animation: marquee 22s linear infinite;
+}
+
+.marquee span {
+    margin: 0 30px;
+    color: var(--red);
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-40%);
+    }
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.section {
+    max-width: var(--container);
+
+    margin: 0 auto;
+
+    padding: 100px 30px;
+}
+
+.section-heading {
+    margin-bottom: 55px;
+
+    text-align: center;
+}
+
+.section-heading > span {
+    display: block;
+
+    color: var(--red);
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    font-family: var(--font-title);
+
+    font-size: clamp(48px, 7vw, 80px);
+
+    line-height: 0.95;
+}
+
+.section-heading h2 em {
+    color: var(--red);
+    font-style: normal;
+}
+
+.section-heading.light {
+    color: white;
+}
+
+.section-heading.light > span {
+    color: var(--yellow);
+}
+
+.section-heading.light h2 em {
+    color: var(--yellow);
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.feature-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.feature-card {
+    padding: 40px 30px;
+
+    background: white;
+
+    border-bottom: 5px solid var(--black);
+
+    transition: 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+
+    border-bottom-color: var(--red);
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card-hot {
+    background: var(--red);
+    color: white;
+}
+
+.feature-icon {
+    font-size: 50px;
+
+    margin-bottom: 25px;
+}
+
+.feature-card h3 {
+    font-family: var(--font-title);
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: #666;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+.feature-card-hot p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* =========================================
+   MENU
+========================================= */
+
+.menu-section {
+    background: var(--black);
+
+    padding: 100px max(30px, calc((100vw - 1140px) / 2));
+
+    color: white;
+}
+
+.menu-layout {
+    display: grid;
+
+    grid-template-columns: 1.7fr 0.8fr;
+
+    gap: 60px;
+
+    align-items: start;
+}
+
+.menu-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.menu-item {
+    display: grid;
+
+    grid-template-columns: 65px 1fr auto;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    background: #1d1d1d;
+
+    border-left: 4px solid transparent;
+
+    transition: 0.25s ease;
+}
+
+.menu-item:hover {
+    border-left-color: var(--yellow);
+
+    transform: translateX(5px);
+}
+
+.menu-item.hot {
+    border-left-color: var(--red);
+}
+
+.food-icon {
+    width: 55px;
+    height: 55px;
+
+    background: var(--yellow);
+
+    color: var(--black);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+}
+
+.food-info h3 {
+    font-size: 17px;
+
+    margin-bottom: 5px;
+}
+
+.food-info p {
+    color: #999;
+
+    font-size: 12px;
+}
+
+.food-info h3 span {
+    display: inline-block;
+
+    margin-left: 7px;
+
+    padding: 3px 6px;
+
+    background: var(--red);
+
+    color: white;
+
+    font-size: 9px;
+}
+
+.menu-item > strong {
+    color: var(--yellow);
+
+    font-size: 18px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   ORDER BOX
+========================================= */
+
+.order-box {
+    background: var(--yellow);
+
+    color: var(--black);
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    position: sticky;
+    top: 110px;
+}
+
+.order-label {
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.order-emoji {
+    font-size: 75px;
+
+    margin: 15px 0;
+}
+
+.order-box h3 {
+    font-family: var(--font-title);
+
+    font-size: 38px;
+
+    line-height: 1;
+}
+
+.order-box p {
+    margin: 18px 0 25px;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+.order-box small {
+    display: block;
+
+    margin-top: 15px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   PROMO
+========================================= */
+
+.promo {
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            #990d12
+        );
+
+    color: white;
+
+    padding: 100px 30px;
+
+    overflow: hidden;
+}
+
+.promo-inner {
+    max-width: var(--container);
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.promo-copy > span {
+    color: var(--yellow);
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.promo-copy h2 {
+    font-family: var(--font-title);
+
+    font-size: clamp(55px, 8vw, 100px);
+
+    line-height: 0.9;
+
+    margin: 15px 0 25px;
+}
+
+.promo-copy h2 em {
+    color: var(--yellow);
+
+    font-style: normal;
+}
+
+.promo-copy p {
+    max-width: 500px;
+
+    line-height: 1.7;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    margin-bottom: 30px;
+}
+
+.promo-number {
+    font-family: var(--font-title);
+
+    font-size: 190px;
+
+    line-height: 0.75;
+
+    text-align: center;
+
+    color: var(--yellow);
+
+    transform: rotate(8deg);
+}
+
+.promo-number strong {
+    color: white;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.about-art {
+    min-height: 450px;
+
+    background: var(--yellow);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.about-taco {
+    font-size: 190px;
+
+    transform: rotate(-12deg);
+
+    filter:
+        drop-shadow(15px 15px 0 var(--red));
+}
+
+.stamp {
+    position: absolute;
+
+    top: 30px;
+    left: 30px;
+
+    width: 125px;
+    height: 125px;
+
+    border: 5px solid var(--red);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    font-family: var(--font-title);
+
+    font-size: 15px;
+
+    transform: rotate(-12deg);
+
+    z-index: 2;
+}
+
+.stamp strong {
+    color: var(--red);
+
+    font-size: 23px;
+}
+
+.stamp small {
+    font-family: var(--font-body);
+
+    font-size: 7px;
+
+    font-weight: 900;
+}
+
+.about-copy > span {
+    color: var(--red);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.about-copy h2 {
+    font-family: var(--font-title);
+
+    font-size: clamp(45px, 6vw, 75px);
+
+    line-height: 0.95;
+
+    margin: 15px 0 25px;
+}
+
+.about-copy h2 em {
+    color: var(--red);
+    font-style: normal;
+}
+
+.about-copy p {
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+}
+
+.text-link {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    color: var(--red);
+
+    font-size: 12px;
+
+    font-weight: 900;
+}
+
+
+/* =========================================
+   LOCATION
+========================================= */
+
+.location {
+    background: #181818;
+
+    color: white;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 600px;
+}
+
+.location-copy {
+    padding: 100px max(30px, calc((100vw - 1140px) / 2));
+
+    padding-right: 50px;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+.location-copy > span {
+    color: var(--yellow);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.location-copy h2 {
+    font-family: var(--font-title);
+
+    font-size: clamp(55px, 7vw, 85px);
+
+    line-height: 0.9;
+
+    margin: 15px 0 30px;
+}
+
+.location-copy h2 em {
+    color: var(--yellow);
+    font-style: normal;
+}
+
+.address-card {
+    padding: 25px;
+
+    background: #242424;
+
+    border-left: 4px solid var(--yellow);
+
+    margin-bottom: 25px;
+}
+
+.address-card strong {
+    color: var(--yellow);
+
+    font-size: 13px;
+}
+
+.address-card p {
+    color: #bbb;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    margin-top: 10px;
+}
+
+.address-card .hours {
+    color: white;
+
+    font-weight: 700;
+}
+
+.map {
+    min-height: 600px;
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+
+    min-height: 600px;
+
+    border: 0;
+
+    filter: grayscale(1) contrast(1.1);
+}
+
+
+/* =========================================
+   SOCIAL
+========================================= */
+
+.social {
+    max-width: var(--container);
+
+    margin: auto;
+
+    padding: 100px 30px;
+}
+
+.social-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.social-card {
+    min-height: 130px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    color: white;
+
+    transition: 0.3s ease;
+}
+
+.social-card:hover {
+    transform: translateY(-5px);
+}
+
+.social-card > span {
+    font-size: 40px;
+}
+
+.social-card div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.social-card small {
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.social-card strong {
+    font-size: 18px;
+}
+
+.social-card b {
+    margin-left: auto;
+
+    font-size: 25px;
+}
+
+.instagram {
+    background: linear-gradient(
+        135deg,
+        #833ab4,
+        #fd1d1d,
+        #fcb045
+    );
+}
+
+.tiktok {
+    background: #050505;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background: var(--black);
+
+    color: white;
+
+    padding: 60px 30px;
+
+    text-align: center;
+}
+
+.footer-brand {
+    font-family: var(--font-title);
+
+    font-size: 35px;
+}
+
+.footer-brand b {
+    color: var(--yellow);
+}
+
+footer p {
+    color: #999;
+
+    margin: 10px 0 20px;
+
+    font-size: 13px;
+}
+
+footer > a {
+    display: inline-block;
+
+    color: var(--yellow);
+
+    font-weight: 800;
+
+    font-size: 13px;
+}
+
+footer small {
+    display: block;
+
+    color: #666;
+
+    margin-top: 35px;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   FLOATING WHATSAPP
+========================================= */
+
+.floating-wa {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 60px;
+    height: 60px;
+
+    background: var(--green);
+
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 28px;
+
+    z-index: 900;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+
+    transition: 0.2s ease;
+}
+
+.floating-wa:hover {
+    transform: scale(1.1);
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.25s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 520px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: var(--cream);
+
+    color: var(--black);
+
+    padding: 40px;
+
+    position: relative;
+
+    transform: translateY(20px);
+
+    transition: 0.25s ease;
+}
+
+.modal.active .modal-box {
+    transform: translateY(0);
+}
+
+.modal-box > span {
+    color: var(--red);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.modal-box h2 {
+    font-family: var(--font-title);
+
+    font-size: 45px;
+
+    line-height: 1;
+
+    margin: 12px 0 25px;
+}
+
+.modal-close {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 40px;
+    height: 40px;
+
+    background: var(--black);
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+}
+
+#orderForm {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+#orderForm label {
+    background: white;
+
+    padding: 12px 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    border: 1px solid #eee;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+#orderForm label input {
+    width: 75px;
+
+    padding: 10px;
+
+    border: 2px solid #ddd;
+
+    outline: none;
+
+    text-align: center;
+
+    font-size: 15px;
+
+    font-weight: 800;
+}
+
+#orderForm label input:focus {
+    border-color: var(--red);
+}
+
+.total {
+    margin-top: 10px;
+
+    padding: 20px;
+
+    background: var(--black);
+
+    color: white;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.total strong {
+    color: var(--yellow);
+
+    font-size: 25px;
+}
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        padding: 90px 5%;
+
+        min-height: 620px;
+    }
+
+    .hero-taco {
+        opacity: 0.35;
+
+        right: -80px;
+    }
+
+    .hero-sticker {
+        right: 20px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .order-box {
+        position: static;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .location {
+        grid-template-columns: 1fr;
+    }
+
+    .location-copy {
+        padding: 80px 30px;
+    }
+
+    .map {
+        min-height: 450px;
+    }
+
+    .map iframe {
+        min-height: 450px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 750px) {
+
+    .topbar {
+        gap: 10px;
+
+        font-size: 8px;
+
+        justify-content: space-around;
+    }
+
+    .topbar span:nth-child(2) {
+        display: none;
+    }
+
+    .header {
+        min-height: 70px;
+
+        padding: 8px 20px;
+    }
+
+    .brand-logo {
+        width: 80px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .header nav {
+        position: absolute;
+
+        left: 0;
+        right: 0;
+        top: 70px;
+
+        background: var(--black);
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        margin: 0;
+
+        border-top: 1px solid #333;
+    }
+
+    .header nav.active {
+        display: flex;
+    }
+
+    .header nav a {
+        padding: 18px 25px;
+
+        border-bottom: 1px solid #333;
+    }
+
+    .nav-order {
+        display: none;
+    }
+
+    .hero {
+        min-height: 650px;
+
+        padding: 70px 25px;
+    }
+
+    .hero h1 {
+        font-size: clamp(60px, 18vw, 100px);
+    }
+
+    .hero-content > p {
+        font-size: 16px;
+    }
+
+    .hero-taco {
+        width: 300px;
+        height: 300px;
+
+        right: -100px;
+
+        top: 55%;
+    }
+
+    .giant-taco {
+        font-size: 160px;
+    }
+
+    .hero-sticker {
+        width: 100px;
+        height: 100px;
+
+        right: 15px;
+        bottom: 20px;
+
+        font-size: 12px;
+    }
+
+    .hero-sticker strong {
+        font-size: 18px;
+    }
+
+    .section {
+        padding: 70px 20px;
+    }
+
+    .menu-section {
+        padding: 70px 20px;
+    }
+
+    .menu-item {
+        grid-template-columns: 48px 1fr auto;
+
+        gap: 12px;
+
+        padding: 15px;
+    }
+
+    .food-icon {
+        width: 45px;
+        height: 45px;
+
+        font-size: 22px;
+    }
+
+    .food-info h3 {
+        font-size: 14px;
+    }
+
+    .food-info p {
+        font-size: 10px;
+    }
+
+    .menu-item > strong {
+        font-size: 14px;
+    }
+
+    .promo {
+        padding: 70px 25px;
+    }
+
+    .promo-inner {
+        display: block;
+    }
+
+    .promo-number {
+        display: none;
+    }
+
+    .about-art {
+        min-height: 330px;
+    }
+
+    .about-taco {
+        font-size: 140px;
+    }
+
+    .location-copy {
+        padding: 70px 25px;
+    }
+
+    .social {
+        padding: 70px 20px;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-card {
+        min-height: 110px;
+    }
+
+    .modal-box {
+        padding: 30px 20px;
+    }
+
+    .modal-box h2 {
+        font-size: 38px;
+    }
+
+    .floating-wa {
+        width: 55px;
+        height: 55px;
+
+        right: 15px;
+        bottom: 15px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 450px) {
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .menu-item {
+        grid-template-columns: 42px 1fr;
+    }
+
+    .menu-item > strong {
+        grid-column: 2;
+    }
+
+    .food-info h3 {
+        font-size: 13px;
+    }
+
+    .order-box {
+        padding: 30px 20px;
+    }
+
+    #orderForm label {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
